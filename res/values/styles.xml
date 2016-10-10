@@ -1,0 +1,96 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    
+      <!-- 覆盖系统check框自带的背景 -->
+    <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/mima_selector</item>
+    </style>
+    
+
+    <!-- 覆盖系统自带对话框dialog的字体大小. -->
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+      <!--  <item name="android:windowFrame">@null</item> 
+        <item name="android:windowIsFloating">true</item> 
+        <item name="android:windowIsTranslucent">false</item>  
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>  
+        <item name="android:backgroundDimEnabled">false</item> -->     
+       
+        <item name="android:textSize">15sp</item>
+        <item name="android:windowBackground">@color/white_zhende</item>     
+        <!-- <item name="android:background">@drawable/tile_background</item>
+        <item name="android:textSize">15sp</item>
+         <item name="android:windowBackground">@color/white_zhende</item>          
+           <item name="android:topBright">@drawable/tile_background</item>  -->              
+        
+    </style>
+    
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="itcastTheme" parent="android:Theme">
+        <item name="android:windowContentOverlay">@drawable/nonecolor</item>
+        <item name="android:windowTitleSize">44dp</item>        <item name="android:windowTitleBackgroundStyle">@style/itcastbg</item>
+    </style>
+
+      <style name="itcastbg">
+        <item name="android:background">@drawable/tile_background</item>
+    </style>
+    
+    <!-- 签证阶段的格式 -->
+    <style name="qianZhenJieDuan">
+        <item name="android:textSize">22sp</item>
+        <item name="android:layout_width">30dp</item>       
+    </style>
+
+    <!-- 变电工程按钮的格式 -->
+    <style name="anniugeshi">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>        
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- 线路工程 按钮的格式 -->
+    <style name="type_bn_power">
+       <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>        
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- 基本信息的工程名称的格式 -->
+    <style name="type_basic_name">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <!-- 基本信息输入的格式 -->
+    <style name="type_basic_edit">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+</resources>

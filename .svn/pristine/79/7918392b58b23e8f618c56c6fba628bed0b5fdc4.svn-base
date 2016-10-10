@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<body>
+<div style=" width:100%; height:auto; font-family:微软雅黑; line-height:22px; font-size:16px;  color:#5c5c5c;  margin:0; padding:0; background:#fff;">
+
+  <div  style=" width:100%; background: url(image/xy.png) left top no-repeat; padding-left:10px;line-height:24px; ">1、本app主要是针对工程验收使用。
+   </div>
+  </br>
+
+  <div  style=" width:100%; background: url(image/xy.png) left top no-repeat; padding-left:10px; line-height:24px; ">2、单击打开app，首次进入，输入用户名和密码，然后点击注册来注册用户。之后输入用户名和密码，点击登录进入主页。
+  、如果忘记密码，可以点击登录按钮下的忘记密码进行密码的修改。</div>
+  </br>
+
+   <div  style=" width:100%; background: url(image/xy.png) left top no-repeat; padding-left:10px; line-height:24px; ">3、登录后，首先选择工程类型是变电工程或线路工程。
+   </div>
+  </br>
+
+   <div  style=" width:100%; background: url(image/xy.png) left top no-repeat; padding-left:10px; line-height:24px; ">4、在工程列表页面，可以创建工程，并单击工程名称进入相应的工程内部。
+   </div>
+  </br> 
+
+   <div  style=" width:100%; background: url(image/xy.png) left top no-repeat; padding-left:10px; line-height:24px; ">5、在工程内部项目中，首先选择基本信息，针对相应的工程阶段填写并保存项目信息。
+   、在各个工程阶段进行验收。
+   、验收结果导出用于对工程阶段的各个档案类别的验收细节进行输出到内存卡上。其后的查看用于查看最近一次的验收结果。
+   、签证结果导出用于对工程阶段的签证单进行输出到内存卡上。其后的查看用于最近一次签证单的查看。
+   、导出到电脑说明，用于说明如何把内存卡上的导出文件复制到电脑上。
+   </div>
+  </br>
+
+ <div  style=" width:100%; background: url(image/xy.png) left top no-repeat; padding-left:10px; line-height:24px; ">6、在验收页面，单击是否合格对工程进行验收，单击标准图标则显示相应的管理标准，单击照相按钮可以为相应的条目留下图片佐证、单击查看图标，可以查看相应条目下的图片资料。
+ 、如果点击项目不合格，则可以为相应条目记录该项目不合格的原因和存在的问题。
+   </div>
+  </br>
+
+   <div  style=" width:100%; background: url(image/xy.png) left top no-repeat; padding-left:10px; line-height:24px; ">7、该app所有导出文件都在文件管理的跟目录下，一个叫电网工程的文件夹下，只要在该文件下的对应工程，对应阶段目录下就可以找到对应的文件。
+   </div>
+  </br>
+
+
+</div>
+</body>
+</html>

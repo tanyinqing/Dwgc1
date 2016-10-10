@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" 
+      android:background="@color/white_zhende">
+       <!--  <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"  
+            android:layout_marginLeft="10dp"        
+            android:src="@drawable/bian_dian" />  -->
+            
+
+        <TextView
+        android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="50dp"                   
+            android:layout_weight="4"
+          android:background="@drawable/background_tuceng"
+             android:drawablePadding="10dp" 
+              android:paddingLeft="20dip"
+   			 android:paddingRight="20dip" 
+             android:clickable="true"           
+            android:gravity="left|center_vertical"
+            android:onClick="goToNext"           
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+       <!--  <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"            
+            android:layout_marginRight="20dp"
+            android:src="@drawable/right_tiaozhuan" /> -->
+        <TextView 
+            android:layout_width="1dp"
+   			 android:layout_height="50dp"   			
+   			 android:background="@color/biandian_shutiao"/>      
+       
+        
+          <TextView
+       		 android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="0dp"
+           android:layout_weight="1"
+            android:background="@drawable/background_tuceng"          
+            android:gravity="center"          
+            android:text="删除"            
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/shan_chu_zi_se"
+             android:clickable="true"         
+            android:textSize="16sp" />
+      
+    </LinearLayout>
+
+  <!--  <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+         android:textSize="22sp"
+         android:visibility="gone"
+        android:layout_marginTop="0dp"
+        android:text="序号" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"       
+        android:textSize="20sp"
+        android:layout_weight="1"
+         android:clickable="true"          
+         android:background="@drawable/background_button"
+         android:textColor="@color/text_color_button"        
+        android:layout_marginRight="10dp"
+        android:text="工程名称" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:textSize="14sp"
+        android:layout_marginLeft="10dp"       
+        android:clickable="true"              
+         android:background="@drawable/background_button"
+         android:textColor="@color/text_color_button"
+        android:text="删除工程" />-->
+  

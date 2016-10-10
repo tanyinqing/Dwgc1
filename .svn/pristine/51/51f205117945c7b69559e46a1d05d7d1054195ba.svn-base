@@ -1,0 +1,364 @@
+package com.yzkj.dwgc1;
+
+import java.io.File;
+import java.io.IOException;
+
+import com.yzkj.application.XlwApplication;
+import com.yzkj.ceshi.PromptManager;
+import com.yzkj.utils.MD5Utils;
+import com.yzkj.utils.PreferenceUtil;
+
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.SystemClock;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
+import android.view.ContextMenu;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.view.Window;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class LoginPage extends Activity{
+	
+	//保存配置信息  
+	private SharedPreferences sp;
+	
+	//密码是否显示
+	private CheckBox checkBox1;
+	private boolean isHidden=true;
+	
+	
+
+	
+	private EditText  editText1;
+	private EditText  editText2;
+	@Override	
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+//	        setContentView(R.layout.activity_loginpage);
+	        
+	        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);  
+	        setContentView(R.layout.activity_loginpage);  
+	        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE
+			,R.layout.title_loginpage); 
+   
+	        PromptManager.showToastTest(this,"LoginPage 测试数据已打开  正式版请从代码关闭   关闭自动的登录 配置数据config");
+	        PromptManager.showDialogTest1(this,"LoginPage 测试数据已打开  正式版请从代码关闭   关闭自动的登录 配置数据 config");
+	        	                
+	        editText1=(EditText)findViewById(R.id.editText1);
+	        editText2=(EditText)findViewById(R.id.editText2);
+	        
+	       
+	        checkBox1=(CheckBox) findViewById(R.id.xianshi_xima);
+	    
+	        checkBox1.setOnCheckedChangeListener(new 
+			OnCheckedChangeListener() {
+	            
+	            @Override
+	            public void onCheckedChanged(CompoundButton 
+				buttonView, boolean isChecked) {
+	                // TODO Auto-generated method stub
+	                if(isChecked){
+	                    //如果选中，显示密码      
+	                    editText2.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+	                }else{
+	                    //否则隐藏密码
+	                    editText2.setTransformationMethod(PasswordTransformationMethod.getInstance());
+	                }
+	                isHidden = !isHidden;
+	                editText2.postInvalidate();
+	                //切换后将EditText光标置于末尾
+	                CharSequence charSequence = 
+					editText2.getText();
+	                if (charSequence instanceof Spannable) {
+	                    Spannable spanText = (Spannable) 
+						charSequence;
+	                    Selection.setSelection(spanText, 
+						charSequence.length());
+	                }
+
+	            }
+	        }); 
+
+
+	        
+	        if(PromptManager.isShow2){
+	        	
+	        }
+	        
+	        //按钮加入 3次点击的监听
+	        editText1.setOnClickListener(new 
+			View.OnClickListener()
+	               {
+	                  //需要监听几次点击事件数组的长度就为几
+	                   //如果要监听双击事件则数组长度为2，如果要监听3次连续点击事件则数组长度为3...
+	                   long[] mHints = new long[3];//初始全部为0
+	                   @Override
+	                   public void onClick(View v)
+	                   {
+	                       //将mHints数组内的所有元素左移一个位置
+	                       System.arraycopy(mHints, 1, mHints, 0, 
+						   mHints.length - 1);
+	                      //获得当前系统已经启动的时间
+	                       mHints[mHints.length - 1] = 
+						   SystemClock.uptimeMillis();
+	                       if 
+						   (SystemClock.uptimeMillis()-mHints[0]<=500){
+	                    	   PromptManager.dialog3(LoginPage.this);
+	                       }
+	                   }
+	               });
+	        
+	        sp = getSharedPreferences("config",MODE_PRIVATE);
+	        
+//	        goToNext();
+	        
+	        if (isSetupPwd("ID")) {
+	        	editText1.setText(sp.getString("ID",null));
+	        	editText2.setText("");
+	        //正式版应该将这句注释掉
+	        	// editText2.setText("a");
+			}
+	        
+	       //PromptManager.showDialogTest(this,"测试数据已打开 我精神特别的低落");
+	    }
+	 public void goToNext(){//View view让视图自动跳转
+		 
+	    	Intent  intent=new Intent(this,Type1.class);
+//	    	Intent  intent=new Intent(this,Type1.class);
+	    	startActivity(intent);
+//	    PromptManager.showToastTest(this,"测试数据已打开  我觉得最有价值的东西就是——能和那些有梦想有追求有能力的人一起去经历那些最有意义的事情!");
+	   	
+	    finish();
+	    }
+	 public void goToNext(View view){//View view让视图自动跳转
+		 switch (view.getId()) {
+		case R.id.button1:
+			register();
+			break;
+		case R.id.Button01:
+			savePassword();
+			 try {
+				createFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case R.id.bn_revise:
+//			Log.d("判断配置文件中是否设置过账号", "判断配置文件中是否设置过账号");
+			if(isSetupPwd("ID")){//判断配置文件中是否设置过账号
+				Log.d("判断配置文件中是否设置过账号", "判断配置文件中是否设置过账号");
+//				String saveID = sp.getString("ID",null);
+//				EditText userName = (EditText)findViewById(R.id.etUserName);
+//				userName.setText("123");
+				dialog();
+				}else {
+					Toast.makeText(LoginPage.this, "你还没有注册！", 0).show();
+					return;
+				}
+			
+			break;
+		case R.id.delete_yonghuming:
+			editText1.setText("");
+			break;
+		case R.id.delete_mima:
+			editText2.setText("");
+			break;		
+
+		default:
+			break;
+		}
+		 
+//	    	Intent  intent=new Intent(this,Type.class);
+//	    	startActivity(intent);
+	    }
+	 public void createFile() throws IOException{
+		 if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+			 String destPath = 
+			 Environment.getExternalStorageDirectory() + "/电网工程/";
+//			 String destPath = Environment.getExternalStorageDirectory() + "/dianwang/";
+			 File f=new File(destPath,"state"+".txt");
+			 File f1 = new File(destPath);
+			 
+			  //file2  为刷新时用到的文件
+	         String path=destPath+"/"+"state.txt";
+	         
+			 if(!f1.exists()){
+				 f1.mkdirs(); // 如果目标路径不存在，就创建它	
+				  
+ // 如果目标路径不存在，就创建它	
+				 if (!f.exists()) {
+					 f.createNewFile();
+					 PromptManager.showToastTest(this,"工程验收的	 文件夹已生成");
+					 
+					 XlwApplication.getInstance().scanSD1(path);
+				}
+				
+			 }else {
+				
+			}
+		 }else {
+			 //保存失败后   在1和2两个界面之间切换	   			
+				Toast.makeText(this, "请检查你的内存卡是否正常", 
+				0).show();
+		}
+	 }
+	 
+	 
+	 
+	//判断是否设置过密码   如果设置过密码 返回true   没有设置过密码  返回false
+		private boolean isSetupPwd(String pass){
+			String password = sp.getString(pass,null);
+			return !TextUtils.isEmpty(password);
+		}
+	
+	//输入账号和密码  并进行登录的方法
+		public void savePassword(){
+			String ID = editText1.getText().toString().trim();
+			String saveID = sp.getString("ID",null);
+			
+			String password = 
+			editText2.getText().toString().trim();
+			String savePassword = sp.getString("password",null);
+									
+			if(TextUtils.isEmpty(ID)){
+				Toast.makeText(this,"账号为空！",0).show();
+				return;
+			}
+			
+			if(TextUtils.isEmpty(password)){
+				Toast.makeText(this,"密码为空！",0).show();
+				return;
+			}
+			if(ID.equals(saveID)){
+				if 
+				(MD5Utils.md5Password(password).equals(savePassword)) {
+					 goToNext();    //启动登录的方法
+				} else {
+					Toast.makeText(this,"密码错误",0).show();
+					return;
+				}
+				
+			}else{
+				Toast.makeText(this,"账号错误",0).show();
+				return;
+			}
+		}
+		
+		//注册账号
+		private void register(){
+			String savePassword = sp.getString("password",null);	
+					
+			String saveID = sp.getString("ID",null);
+			
+			
+			String ID = editText1.getText().toString().trim();
+			String password = 
+			editText2.getText().toString().trim();
+			
+			if(!isSetupPwd("ID")){//判断配置文件中是否设置过账号
+				
+				//判断密码和账号的字符串不为空才可以设置
+//				if !(TextUtils.isEmpty(password)&&!TextUtils.isEmpty(ID)) { 
+				if 
+				(!(TextUtils.isEmpty(password))&&(!TextUtils.isEmpty(ID))) { 
+					Editor editor=sp.edit();
+					editor.putString("ID", ID);
+					editor.putString("password", 
+					MD5Utils.md5Password(password));
+					editor.commit();//提交
+					editText1.setText("");
+					editText2.setText("");
+					Toast.makeText(this,"注册成功，请登录！",0).show();
+				}else {
+					Toast.makeText(this,"密码和账号不能为空！",0).show();
+					return;
+				}				
+				
+			}else {
+				Toast.makeText(this,"你已经注册",0).show();
+				return;
+			}
+		}
+	
+		
+		//弹出一个dialog的输入框  修改密码
+		public void dialog() {
+			AlertDialog.Builder builder = new 
+			AlertDialog.Builder(this);
+			LayoutInflater factory = LayoutInflater.from(this);
+			final View textEntryView = 
+			factory.inflate(R.layout.test_code, null);
+//			builder.setIcon(R.drawable.icon);
+			builder.setTitle("请输入新密码：");
+			builder.setView(textEntryView);
+			builder.setPositiveButton("确定", new 
+			DialogInterface.OnClickListener() {
+
+				public void onClick(DialogInterface dialog, int 
+				whichButton) {
+//					Log.d("判断配置文件中是否设置过账号", "判断配置文件中是否设置过账号");
+//					if(isSetupPwd("ID")){//判断配置文件中是否设置过账号
+//						Log.d("判断配置文件中是否设置过账号", "判断配置文件中是否设置过账号");
+//						String saveID = sp.getString("ID",null);
+//						EditText userName = (EditText) 
+textEntryView.findViewById(R.id.etUserName);
+//						userName.setText("123");
+//						}else {
+//							Toast.makeText(LoginPage.this, "你还没有注册！", 0).show();
+//							return;
+//						}
+					
+					EditText etPassWord = (EditText) 
+					textEntryView.findViewById(R.id.etPassWord);
+					String password = 
+					etPassWord.getText().toString().trim();
+					
+					if (!(TextUtils.isEmpty(password))) {
+						Editor editor=sp.edit();
+						editor.putString("password", 
+						MD5Utils.md5Password(password));
+						editor.commit();//提交
+//						editText1.setText("");
+						editText2.setText("");
+						Toast.makeText(LoginPage.this,"密码修改成	功，请登录！",0).show();
+					} else {
+						Toast.makeText(LoginPage.this,"密码不能为	空！",0).show();
+						
+					}
+					}
+			});
+			builder.setNegativeButton("取消", new 
+			DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int 
+				whichButton) {
+					Toast.makeText(LoginPage.this, "你取消了修改密码", 0).show();
+				}
+
+			}).show();
+
+		}
+		
+}

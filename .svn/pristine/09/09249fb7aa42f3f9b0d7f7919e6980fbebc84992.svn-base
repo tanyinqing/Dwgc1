@@ -1,0 +1,566 @@
+package com.yzkj.dwgc1;
+
+import java.util.Calendar;
+
+import com.yzkj.application.XlwApplication;
+import com.yzkj.ceshi.PromptManager;
+import com.yzkj.db.dbadapter;
+
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.os.Bundle;
+import android.text.InputType;
+import android.util.Log;
+import android.view.ContextThemeWrapper;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+public class BasicInformation_power extends BaseActivity implements
+		View.OnTouchListener {
+
+	private int title;
+
+	// 从上一个页面传递过来的数据
+	private String pass_id;
+	private String pass_promject;
+	private String pass_databass;
+
+	// 需要输入时间的输入框
+	private EditText et_basic2;
+	private EditText et_basic3;
+	private EditText et_basic4;
+	private EditText et_basic5;
+	private EditText et_basic9;
+
+	// 初始化数据表的数据
+	String name = "";
+	String stage = "";
+	String stagedata = "";
+	String startdata = "";
+	String commissioningdata = "";
+	String buildname = "";
+	String supervisorunit = "";
+	String counstructedunit = "";
+	String voltageclass = "";
+	String projectscale = "";
+
+	// 需要单独存储在配置文件里的参数
+	String voltageclass1 = "";
+	String projectscale1 = "";
+
+	// 保存信息的工程阶段 判断的状态变量
+	private int save_state;
+
+	// 保存配置信息
+	private SharedPreferences sp;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		// setContentView(R.layout.activity_basicinformation);
+		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+		setContentView(R.layout.activity_basicinformation);
+
+		PromptManager.showToastTest1(this,
+				"BasicInformation_power 这个是 工程基本信息 页面");
+		PromptManager
+				.showDialogTest1(this,
+						"BasicInformation_power 这个是 工程基本信息 页面     保存输入的数据的函数  save_basic(int i)");
+
+		// 初始化重现上一次的数据
+		init();
+
+		// 从上一个页面传递过来的数据
+		// Bundle bundle=this.getIntent().getExtras();
+
+		// 获得从上一个页面获得的数据
+		getData();
+
+		// 根据跳转的页面 变换标题
+		selectTitle();
+
+		et_basic2 = (EditText) this.findViewById(R.id.et_basic2);
+		et_basic3 = (EditText) this.findViewById(R.id.et_basic3);
+		et_basic4 = (EditText) this.findViewById(R.id.et_basic4);
+		et_basic5 = (EditText) this.findViewById(R.id.et_basic5);
+		et_basic9 = (EditText) this.findViewById(R.id.et_basic9);
+		et_basic2.setOnTouchListener(this);
+		et_basic3.setOnTouchListener(this);
+		et_basic4.setOnTouchListener(this);
+		et_basic5.setOnTouchListener(this);
+		et_basic9.setOnTouchListener(this);
+	}
+
+	private void init() {
+
+		sp = getSharedPreferences("config", MODE_PRIVATE);
+
+		((EditText) findViewById(R.id.et_basic1)).setText(sp.getString("name",
+				null));
+		/* 这个签证阶段括起来   防止阶段保存错误 
+		 * ((EditText) findViewById(R.id.et_basic2)).setText(sp.getString("stage",
+				null));  */ 
+		
+		((EditText) findViewById(R.id.et_basic3)).setText(sp.getString(
+				"stagedata", null));
+		((EditText) findViewById(R.id.et_basic4)).setText(sp.getString(
+				"startdata", null));
+		((EditText) findViewById(R.id.et_basic5)).setText(sp.getString(
+				"commissioningdata", null));
+		((EditText) findViewById(R.id.et_basic6)).setText(sp.getString(
+				"buildname", null));
+		((EditText) findViewById(R.id.et_basic7)).setText(sp.getString(
+				"supervisorunit", null));
+		((EditText) findViewById(R.id.et_basic8)).setText(sp.getString(
+				"counstructedunit", null));
+		((EditText) findViewById(R.id.et_basic9)).setText(sp.getString(
+				"voltageclass1", null));
+		((EditText) findViewById(R.id.et_basic10)).setText(sp.getString(
+				"projectscale1", null));
+	}
+
+	// 根据跳转的页面 变换标题
+	private void selectTitle() {
+		switch (title) {
+
+		case 1:
+			getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+					R.layout.title_basicinformation);
+			break;
+		case 2:
+			getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+					R.layout.title_basicinformation2);
+			break;
+		default:
+			break;
+		}
+	}
+
+	// 获得从上一个页面获得的数据
+	private void getData() {
+		Bundle bundle = this.getIntent().getExtras();
+		pass_promject = bundle.getString("promject");
+		pass_id = bundle.getString("id");
+		pass_databass = bundle.getString("databass");
+		title = bundle.getInt("title");
+	}
+
+	// 返回上一页的函数
+	public void goToNect(View view) {
+		switch (view.getId()) {
+		case R.id.stage2_return:
+			if (title == 1) {
+				Intent intent_return = new Intent(this, Stage1.class);
+				Bundle bundle = new Bundle();
+				bundle.putString("id", pass_id);
+				bundle.putString("promject", pass_promject);
+				bundle.putString("databass", pass_databass);
+				intent_return.putExtras(bundle);
+				startActivity(intent_return);
+				finish();
+			} else {
+				Intent intent_return = new Intent(this, Stage2.class);
+				Bundle bundle = new Bundle();
+				bundle.putString("id", pass_id);
+				bundle.putString("promject", pass_promject);
+				bundle.putString("databass", pass_databass);
+				intent_return.putExtras(bundle);
+				startActivity(intent_return);
+				finish();
+			}
+
+			break;
+		case R.id.check_title_return2:
+
+			XlwApplication.getInstance().exit();
+			break;
+		default:
+			break;
+		}
+
+	}
+
+	// 让客户的其它选项做成智能化选择
+	public void smart_select(int i) {
+		switch (i) {
+		case 1:
+			if (title == 1) {
+				final String[] mItems = { "工程开工", "基础完成", "土建交安", "安装完成",
+						"工程投产" };
+				Dialog dialog = null;
+				ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(
+						this, R.style.dialog);
+				Builder builder = new AlertDialog.Builder(contextThemeWrapper);
+
+				builder.setTitle("请选择签证阶段!");
+
+				builder.setItems(mItems, new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Editor editor = sp.edit();
+						switch (which) {
+						case 0:
+							et_basic2.setText("工程开工");
+							et_basic2.requestFocus();
+							// save_state=1;
+
+							editor.putInt("save_state", 1);
+							editor.commit();
+							break;
+						case 1:
+							et_basic2.setText("基础完成");
+							et_basic2.requestFocus();
+							// save_state=2;
+							editor = sp.edit();
+							editor.putInt("save_state", 2);
+							editor.commit();
+							break;
+						case 2:
+							et_basic2.setText("土建交安");
+							et_basic2.requestFocus();
+							// save_state=3;
+							editor = sp.edit();
+							editor.putInt("save_state", 3);
+							editor.commit();
+							break;
+						case 3:
+							et_basic2.setText("安装完成");
+							et_basic2.requestFocus();
+							// save_state=4;
+							editor = sp.edit();
+							editor.putInt("save_state", 4);
+							editor.commit();
+							break;
+						case 4:
+							et_basic2.setText("工程投产");
+							et_basic2.requestFocus();
+							// save_state=5;
+							editor = sp.edit();
+							editor.putInt("save_state",5);
+							editor.commit();
+							break;
+
+						default:
+							break;
+						}
+					}
+				}).show();
+			} else { // 35kV及以上
+
+				final String[] mItems = { "工程开工", "基础完成", "工程投产" };
+				Dialog dialog = null;
+				ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(
+						this, R.style.dialog);
+				Builder builder = new AlertDialog.Builder(contextThemeWrapper);
+
+				builder.setTitle("请选择签证阶段!");
+
+				builder.setItems(mItems, new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Editor editor = sp.edit();
+						switch (which) {
+						case 0:
+							et_basic2.setText("工程开工");
+							et_basic2.requestFocus();
+							// save_state=6;
+							editor = sp.edit();
+							editor.putInt("save_state", 6);
+							editor.commit();
+							break;
+						case 1:
+							et_basic2.setText("基础完成");
+							et_basic2.requestFocus();
+							// save_state=7;
+							editor = sp.edit();
+							editor.putInt("save_state", 7);
+							editor.commit();
+							break;
+						case 2:
+							et_basic2.setText("工程投产");
+							et_basic2.requestFocus();
+							// save_state=8;
+							editor = sp.edit();
+							editor.putInt("save_state", 8);
+							editor.commit();
+							break;
+
+						default:
+							break;
+						}
+					}
+				}).show();
+			}
+
+			break;
+		case 2:
+			final String[] mItems = { "35kV及以上", "220kV及以上", "500kV及以上" };
+			Dialog dialog = null;
+			ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(
+					this, R.style.dialog);
+			Builder builder = new AlertDialog.Builder(contextThemeWrapper);
+
+			builder.setTitle("请选择电压等级:");
+
+			builder.setItems(mItems, new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+
+					switch (which) {
+					case 0:
+						et_basic9.setText("35kV及以上");
+						et_basic9.requestFocus();
+						break;
+					case 1:
+						et_basic9.setText("220kV及以上");
+						et_basic9.requestFocus();
+						break;
+					case 2:
+						et_basic9.setText("500kV及以上");
+						et_basic9.requestFocus();
+						break;
+
+					default:
+						break;
+					}
+				}
+			}).show();
+
+		default:
+			break;
+		}
+	}
+
+	// 保存时弹出保存的阶段的弹出对话框
+	public void save(View view) {	
+		
+		save_state=sp.getInt("save_state", 1);
+		
+		PromptManager.showToastTest1(this, String.valueOf(save_state));
+
+		switch (save_state) {
+		case 1:
+			save_basic(1);
+			break;
+		case 2:
+			save_basic(2);
+			break;
+		case 3:
+			save_basic(3);
+			break;
+		case 4:
+			save_basic(4);
+			break;
+		case 5:
+			save_basic(5);
+			break;
+		case 6:
+			save_basic(6);
+			break;
+		case 7:
+			save_basic(7);
+			break;
+		case 8:
+			save_basic(8);
+			break;
+
+		default:
+			break;
+		}
+
+		
+
+	}
+
+	// 保存输入的数据
+	public void save_basic(int i) {
+		stage = ((EditText) findViewById(R.id.et_basic2)).getText().toString();
+		if ("".endsWith(stage)) {
+			Toast.makeText(this, "请输入签证阶段！", 0).show();
+			return;
+		}
+		name = ((EditText) findViewById(R.id.et_basic1)).getText().toString();		
+		stagedata = ((EditText) findViewById(R.id.et_basic3)).getText()
+				.toString();
+		startdata = ((EditText) findViewById(R.id.et_basic4)).getText()
+				.toString();
+		commissioningdata = ((EditText) findViewById(R.id.et_basic5)).getText()
+				.toString();
+		buildname = ((EditText) findViewById(R.id.et_basic6)).getText()
+				.toString();
+		supervisorunit = ((EditText) findViewById(R.id.et_basic7)).getText()
+				.toString();
+		counstructedunit = ((EditText) findViewById(R.id.et_basic8)).getText()
+				.toString();
+		voltageclass = "("
+				+ ((EditText) findViewById(R.id.et_basic9)).getText()
+						.toString() + ")千伏";
+		projectscale = "("
+				+ ((EditText) findViewById(R.id.et_basic10)).getText()
+						.toString() + ")万千伏安/公里";
+		
+		Editor editor = sp.edit();
+		editor.putString("name", name);
+		//editor.putString("stage", stage);
+		editor.putString("stagedata", stagedata);
+		editor.putString("startdata", startdata);
+		editor.putString("commissioningdata", commissioningdata);
+		editor.putString("buildname", buildname);
+		editor.putString("supervisorunit", supervisorunit);
+		editor.putString("counstructedunit", counstructedunit);
+		voltageclass1 = ((EditText) findViewById(R.id.et_basic9)).getText()
+				.toString();
+		projectscale1 = ((EditText) findViewById(R.id.et_basic10)).getText()
+				.toString();
+		editor.putString("voltageclass1", voltageclass1);
+		editor.putString("projectscale1", projectscale1);
+		editor.commit();// 提交
+		dbadapter db = new dbadapter(pass_databass, this, "record", null, null);
+		db.open();
+		Boolean a = db.updateContactcause(i, name, stage, stagedata, startdata,
+				commissioningdata, buildname, supervisorunit, counstructedunit,
+				voltageclass, projectscale);
+		db.close();
+		Log.d("保存个人档案信息", String.valueOf(a));
+
+		
+
+		if (a) {
+			Toast.makeText(this, "保存成功", 0).show();
+		} else {
+			Toast.makeText(this, "保存失败", 0).show();
+		}
+
+	}
+
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			View view = View.inflate(this, R.layout.common_datetime, null);
+			final DatePicker datePicker = (DatePicker) view
+					.findViewById(R.id.datepicker);
+			final TimePicker timePicker = (android.widget.TimePicker) view
+					.findViewById(R.id.timepicker);
+			builder.setView(view);
+			Calendar cal = Calendar.getInstance();
+			cal.setTimeInMillis(System.currentTimeMillis());
+			datePicker.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),
+					cal.get(Calendar.DAY_OF_MONTH), null);
+			timePicker.setIs24HourView(true);
+			timePicker.setCurrentHour(cal.get(Calendar.HOUR_OF_DAY));
+			timePicker.setCurrentMinute(Calendar.MINUTE);
+			if (v.getId() == R.id.et_basic3) {
+				final int inType = et_basic3.getInputType();
+				et_basic3.setInputType(InputType.TYPE_NULL);
+				et_basic3.onTouchEvent(event);
+				et_basic3.setInputType(inType);
+				et_basic3.setSelection(et_basic3.getText().length());
+				builder.setTitle("选取签证时间");
+				builder.setPositiveButton("确  定",
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								StringBuffer sb = new StringBuffer();
+								sb.append(String.format("%d-%02d-%02d",
+										datePicker.getYear(),
+										datePicker.getMonth() + 1,
+										datePicker.getDayOfMonth()));
+								sb.append("  ");
+								sb.append(timePicker.getCurrentHour())
+										.append(":")
+										.append(timePicker.getCurrentMinute());
+								et_basic3.setText(sb);
+								et_basic3.requestFocus();
+								dialog.cancel();
+							}
+						});
+				Dialog dialog = builder.create();
+				dialog.show();
+			} else if (v.getId() == R.id.et_basic4) {
+				int inType = et_basic4.getInputType();
+				et_basic4.setInputType(InputType.TYPE_NULL);
+				et_basic4.onTouchEvent(event);
+				et_basic4.setInputType(inType);
+				et_basic4.setSelection(et_basic4.getText().length());
+				builder.setTitle("选取开工时间");
+				builder.setPositiveButton("确  定",
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								StringBuffer sb = new StringBuffer();
+								sb.append(String.format("%d-%02d-%02d",
+										datePicker.getYear(),
+										datePicker.getMonth() + 1,
+										datePicker.getDayOfMonth()));
+								sb.append("  ");
+								sb.append(timePicker.getCurrentHour())
+										.append(":")
+										.append(timePicker.getCurrentMinute());
+								et_basic4.setText(sb);
+								dialog.cancel();
+							}
+						});
+				Dialog dialog = builder.create();
+				dialog.show();
+			} else if (v.getId() == R.id.et_basic5) {
+				int inType = et_basic4.getInputType();
+				et_basic5.setInputType(InputType.TYPE_NULL);
+				et_basic5.onTouchEvent(event);
+				et_basic5.setInputType(inType);
+				et_basic5.setSelection(et_basic5.getText().length());
+				builder.setTitle("选取投产时间");
+				builder.setPositiveButton("确  定",
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								StringBuffer sb = new StringBuffer();
+								sb.append(String.format("%d-%02d-%02d",
+										datePicker.getYear(),
+										datePicker.getMonth() + 1,
+										datePicker.getDayOfMonth()));
+								sb.append("  ");
+								sb.append(timePicker.getCurrentHour())
+										.append(":")
+										.append(timePicker.getCurrentMinute());
+								et_basic5.setText(sb);
+								dialog.cancel();
+							}
+						});
+				Dialog dialog = builder.create();
+				dialog.show();
+			} else if (v.getId() == R.id.et_basic2) {
+				smart_select(1);
+			} else if (v.getId() == R.id.et_basic9) {
+				smart_select(2);
+			}
+
+			// Dialog dialog = builder.create();
+			// dialog.show();
+		}
+		return true;
+	}
+
+}

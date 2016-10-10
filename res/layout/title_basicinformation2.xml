@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+     >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+           android:layout_marginTop="6dp"
+        android:layout_centerHorizontal="true"
+        android:text="线路工程--基本信息"
+         android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/basic_title_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+       android:layout_marginTop="8dp"
+       android:clickable="true"
+       android:onClick="goToNect"
+        android:background="@drawable/re"
+        android:layout_alignParentTop="true"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+  <TextView
+        android:id="@+id/stage2_return"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/basic_title_return"
+        android:layout_marginLeft="3dp"
+        android:clickable="true"
+         android:textSize="22sp"
+        android:onClick="goToNect"
+       android:layout_marginTop="6dp"
+          android:text="返回"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+  
+   <TextView
+        android:id="@+id/check_title_return2"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+      android:layout_alignParentRight="true"
+        android:layout_marginLeft="3dp"
+        android:clickable="true"
+         android:textSize="22sp"
+        android:onClick="goToNect"
+       android:layout_marginTop="6dp"
+          android:text="退出"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

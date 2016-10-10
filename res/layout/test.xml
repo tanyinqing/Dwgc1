@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+      android:background="@color/white"
+   >
+
+    <LinearLayout
+        android:id="@+id/dialogname"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="问题："
+            android:textSize="20sp"
+            android:textStyle="bold" 
+            android:textColor="@color/black"
+             android:layout_marginLeft="10dp"/>
+
+        <EditText
+            android:id="@+id/etUserName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dialognum"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialogname"
+        android:orientation="horizontal" 
+         android:layout_marginTop="15dp"
+         android:layout_marginBottom="15dp">
+
+        <TextView
+            android:id="@+id/tvPassWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="原因："
+            android:textSize="20sp"
+            android:textStyle="bold" 
+            android:layout_marginLeft="10dp"/>
+
+        <EditText
+            android:id="@+id/etPassWord"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp" />
+    </LinearLayout>
+
+</RelativeLayout>

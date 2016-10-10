@@ -1,0 +1,554 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"   
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+     android:background="@color/white" >
+<ScrollView
+     android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+    <LinearLayout 
+      android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:orientation="vertical">
+     <include layout="@layout/divider_gray" />
+        <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="25dp"
+        android:background="@color/background_buju" />
+        
+        
+        <include layout="@layout/divider_gray" />        
+         <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/white_zhende"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        
+         <TextView 
+            android:id="@+id/yonghu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="工程名称:"
+        android:layout_marginLeft="10dp"/>
+        
+         <EditText            
+        android:id="@+id/et_basic1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       android:layout_marginLeft="5dp"
+        android:ems="10"  
+        android:hint="请输入工程名称"      
+        android:clickable="true"       
+        android:inputType="textMultiLine" 
+        android:background="@null" >       
+       </EditText>
+         
+     </LinearLayout>     
+     
+     
+      <include layout="@layout/divider_gray" />        
+         <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/white_zhende"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        
+         <TextView 
+            android:id="@+id/yonghu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="签证阶段:"
+        android:layout_marginLeft="10dp"/>
+        
+         <EditText            
+       android:id="@+id/et_basic2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       android:layout_marginLeft="5dp"
+        android:ems="10"  
+        android:hint="请输入签证阶段"      
+        android:clickable="true"       
+        android:inputType="textMultiLine" 
+        android:background="@null" >       
+       </EditText>
+         
+     </LinearLayout>     
+     <include layout="@layout/divider_gray" />
+        
+     
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/white_zhende"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        
+         <TextView 
+            android:id="@+id/yonghu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="签证时间:"
+        android:layout_marginLeft="10dp"/>
+        
+         <EditText            
+       android:id="@+id/et_basic3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       android:layout_marginLeft="5dp"
+        android:ems="10"  
+        android:hint="请输入签证时间"      
+        android:clickable="true"       
+        android:inputType="textMultiLine" 
+        android:background="@null" >       
+       </EditText>
+         
+     </LinearLayout>     
+     <include layout="@layout/divider_gray" />
+     
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/white_zhende"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        
+         <TextView 
+            android:id="@+id/yonghu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="开工时间:"
+        android:layout_marginLeft="10dp"/>
+        
+         <EditText            
+       android:id="@+id/et_basic4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       android:layout_marginLeft="5dp"
+        android:ems="10"  
+        android:hint="请输入开工时间"      
+        android:clickable="true"       
+        android:inputType="textMultiLine" 
+        android:background="@null" >       
+       </EditText>
+         
+     </LinearLayout>     
+     <include layout="@layout/divider_gray" />
+     
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/white_zhende"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        
+         <TextView 
+            android:id="@+id/yonghu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="投产时间:"
+        android:layout_marginLeft="10dp"/>
+        
+         <EditText            
+       android:id="@+id/et_basic5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       android:layout_marginLeft="5dp"
+        android:ems="10"  
+        android:hint="请输入投产时间"      
+        android:clickable="true"       
+        android:inputType="textMultiLine" 
+        android:background="@null" >       
+       </EditText>
+         
+     </LinearLayout>     
+     <include layout="@layout/divider_gray" />
+     
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/white_zhende"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        
+         <TextView 
+            android:id="@+id/yonghu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="建设名称:"
+        android:layout_marginLeft="10dp"/>
+        
+         <EditText            
+       android:id="@+id/et_basic6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       android:layout_marginLeft="5dp"
+        android:ems="10"  
+        android:hint="请输入建设名称"      
+        android:clickable="true"       
+        android:inputType="textMultiLine" 
+        android:background="@null" >       
+       </EditText>
+         
+     </LinearLayout>     
+     <include layout="@layout/divider_gray" />
+     
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/white_zhende"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        
+         <TextView 
+            android:id="@+id/yonghu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="监理单位:"
+        android:layout_marginLeft="10dp"/>
+        
+         <EditText            
+       android:id="@+id/et_basic7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       android:layout_marginLeft="5dp"
+        android:ems="10"  
+        android:hint="请输入监理单位"      
+        android:clickable="true"       
+        android:inputType="textMultiLine" 
+        android:background="@null" >       
+       </EditText>
+         
+     </LinearLayout>     
+     <include layout="@layout/divider_gray" />
+     
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/white_zhende"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        
+         <TextView 
+            android:id="@+id/yonghu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="施工单位:"
+        android:layout_marginLeft="10dp"/>
+        
+         <EditText            
+       android:id="@+id/et_basic8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       android:layout_marginLeft="5dp"
+        android:ems="10"  
+        android:hint="请输入施工单位"      
+        android:clickable="true"       
+        android:inputType="textMultiLine" 
+        android:background="@null" >       
+       </EditText>
+         
+     </LinearLayout>     
+     <include layout="@layout/divider_gray" />
+     
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/white_zhende"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        
+         <TextView 
+            android:id="@+id/yonghu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="电压等级:"
+        android:layout_marginLeft="10dp"/>
+        
+         <EditText            
+       android:id="@+id/et_basic9"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       android:layout_marginLeft="5dp"
+        android:ems="10"  
+        android:hint="请输入电压等级"      
+        android:clickable="true"       
+        android:inputType="textMultiLine" 
+        android:background="@null" >       
+       </EditText>
+         
+     </LinearLayout>     
+     <include layout="@layout/divider_gray" />
+     
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/white_zhende"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        
+         <TextView 
+            android:id="@+id/yonghu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="工程规模:"
+        android:layout_marginLeft="10dp"/>
+        
+         <EditText            
+       android:id="@+id/et_basic10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       android:layout_marginLeft="5dp"
+        android:ems="10"  
+        android:hint="请输入工程规模"      
+        android:clickable="true"       
+        android:inputType="textMultiLine" 
+        android:background="@null" >       
+       </EditText>
+         
+     </LinearLayout>     
+     <include layout="@layout/divider_gray" />
+    <!--   <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal" >
+     
+          <TextView
+               android:id="@+id/textView1"
+               style="@style/type_basic_name"
+               android:layout_marginLeft="10dp"
+              
+               android:text="工程名称" />
+      
+       <EditText
+           android:id="@+id/et_basic1"
+           style="@style/type_basic_edit"
+           android:layout_marginLeft="8dp"
+           android:hint="请输入工程名称" />
+       
+      </LinearLayout>
+      
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal" >
+     
+           <TextView
+               android:id="@+id/textView1"
+               style="@style/type_basic_name"
+               android:layout_marginLeft="10dp"
+               android:text="签证阶段" />
+      
+       <EditText
+           android:id="@+id/et_basic2"
+           style="@style/type_basic_edit"
+           android:layout_marginLeft="8dp"
+           android:hint="请输入签证阶段" />
+       
+      </LinearLayout>
+      
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+     
+           <TextView
+               android:id="@+id/textView1"
+               style="@style/type_basic_name"
+               android:layout_marginLeft="10dp"
+               android:text="签证时间" />
+      
+       <EditText
+           android:id="@+id/et_basic3"
+           style="@style/type_basic_edit"
+           android:layout_marginLeft="8dp"
+           android:hint="请输入签证时间" />
+       
+      </LinearLayout>
+      
+             <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal" >
+     
+           <TextView
+               android:id="@+id/textView1"
+               style="@style/type_basic_name"
+               android:layout_marginLeft="10dp"
+               android:text="开工时间" />
+      
+       <EditText
+           android:id="@+id/et_basic4"
+           style="@style/type_basic_edit"
+           android:layout_marginLeft="8dp"
+           android:hint="请输入开工时间" />
+       
+      </LinearLayout>
+      
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal" >
+     
+           <TextView
+               android:id="@+id/textView1"
+               style="@style/type_basic_name"
+               android:layout_marginLeft="10dp"
+               android:text="投产时间" />
+      
+       <EditText
+           android:id="@+id/et_basic5"
+           style="@style/type_basic_edit"
+           android:layout_marginLeft="8dp"
+           android:hint="请输入投产时间" />
+       
+      </LinearLayout>
+      
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+     
+           <TextView
+               android:id="@+id/textView1"
+               style="@style/type_basic_name"
+               android:layout_marginLeft="10dp"
+               android:text="建设名称" />
+      
+       <EditText
+           android:id="@+id/et_basic6"
+           style="@style/type_basic_edit"
+           android:layout_marginLeft="8dp"
+           android:hint="请输入建设名称" />
+       
+      </LinearLayout>
+      
+             <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal" >
+     
+           <TextView
+               android:id="@+id/textView1"
+               style="@style/type_basic_name"
+               android:layout_marginLeft="10dp"
+               android:text="监理单位" />
+      
+       <EditText
+           android:id="@+id/et_basic7"
+           style="@style/type_basic_edit"
+           android:layout_marginLeft="8dp"
+           android:hint="请输入监理单位" />
+       
+      </LinearLayout>
+      
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal" >
+     
+           <TextView
+               android:id="@+id/textView1"
+               style="@style/type_basic_name"
+               android:layout_marginLeft="10dp"
+               android:text="施工单位" />
+      
+       <EditText
+           android:id="@+id/et_basic8"
+           style="@style/type_basic_edit"
+           android:layout_marginLeft="8dp"
+           android:hint="请输入施工单位" />
+       
+      </LinearLayout>
+      
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+     
+           <TextView
+               android:id="@+id/textView1"
+               style="@style/type_basic_name"
+               android:layout_marginLeft="10dp"
+               android:text="电压等级" />
+      
+       <EditText
+           android:id="@+id/et_basic9"
+           style="@style/type_basic_edit"
+           android:layout_marginLeft="8dp"
+           android:hint="请输入电压等级" />
+       
+      </LinearLayout>
+      
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+     
+           <TextView
+               android:id="@+id/textView1"
+               style="@style/type_basic_name"
+               android:layout_marginLeft="10dp"
+               android:text="工程规模" />
+      
+       <EditText
+           android:id="@+id/et_basic10"
+           style="@style/type_basic_edit"
+           android:layout_marginLeft="8dp"
+           android:hint="请输入工程规模" />
+       
+      </LinearLayout>-->
+      
+  </LinearLayout>
+     </ScrollView>
+  
+  
+  <Button
+      android:layout_width="fill_parent"
+      android:layout_height="50dp"
+      
+      android:layout_gravity="center"
+      android:onClick="save"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:layout_marginBottom="20dp"
+        android:background="@drawable/background_button"
+         android:textColor="@color/text_color_button"
+         android:textSize="22sp"
+      android:text="保存" />
+
+</LinearLayout>

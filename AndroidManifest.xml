@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yzkj.dwgc1"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    
+    <!-- 内存卡写入照片的权限  android:theme="@style/AppTheme" -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
+    <!-- 保持屏幕灯的常亮 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> 
+    <!-- 禁止屏幕休眠和锁屏 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="22" />
+
+    <application
+       android:name="com.yzkj.application.XlwApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/itcastTheme"         
+         >
+          <!--默认的首页的地址      com.yzkj.dwgc1.MainActivity
+           <activity android:name="com.yzkj.dwgc1.Photo" 
+            android:screenOrientation="portrait"/>
+            -->
+        <activity            
+            android:name="com.yzkj.dwgc1.MainActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait"
+           android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+           >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                
+            </intent-filter>
+        </activity>
+        <activity android:name="com.yzkj.dwgc1.Photo" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.yzkj.dwgc1.LoginPage" 
+             android:windowSoftInputMode="adjustUnspecified|stateHidden"
+             android:configChanges="orientation|keyboardHidden"
+            		android:screenOrientation="portrait" />
+        <activity android:name="com.yzkj.dwgc1.BasicInformation_power"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+             android:configChanges="orientation|keyboardHidden"           
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.yzkj.dwgc1.Acceptancelevel"
+            android:screenOrientation="portrait"/>
+       
+        <activity android:name="com.yzkj.dwgc1.Acceptancecertificate" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.yzkj.dwgc1.Photograph" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.yzkj.dwgc1.Type1" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.yzkj.dwgc1.Stage1" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.yzkj.dwgc1.Check" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.yzkj.dwgc1.Stage2" 
+            android:screenOrientation="portrait"/>
+        
+         <activity android:name="com.yzkj.dwgc1.Multi_project1"
+              android:windowSoftInputMode="adjustUnspecified|stateHidden"
+             android:configChanges="orientation|keyboardHidden"
+             android:screenOrientation="portrait" />
+         
+         <activity android:name="com.yzkj.dwgc1.BaseActivity" 
+             android:screenOrientation="portrait"/>
+         <activity android:name="com.yzkj.dwgc1.Expoert_state" 
+             android:screenOrientation="portrait"/>
+          <activity android:name="com.yzkj.dwgc1.Gallery_photo" 
+              android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root_splash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_buju"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="25dp"
+        android:background="@color/background_buju" />
+
+    <include layout="@layout/divider_gray" />
+
+    <LinearLayout
+         android:id="@+id/type_tv_power"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/background_tuceng"
+          android:onClick="goToNext"
+          android:clickable="true"
+        android:gravity="center_vertical"
+        
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/bian_dian" />
+
+        <Button
+           
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"          
+            android:layout_weight="1"
+            android:background="@null"          
+            android:gravity="left|center_vertical"
+            android:clickable="false"          
+            android:text="变电工程"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+        
+         <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"            
+            android:layout_marginRight="20dp"
+            android:src="@drawable/right_tiaozhuan" />
+    </LinearLayout>
+
+    <include layout="@layout/divider_gray" />
+
+    <!-- 这是二级布局 -->
+
+    <LinearLayout
+         android:id="@+id/type_tv_line"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"       
+        android:gravity="center_vertical"
+        android:orientation="horizontal" 
+           android:background="@drawable/background_tuceng"
+          android:onClick="goToNext"
+          android:clickable="true">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/xian_lu" />
+
+        <Button
+           
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"           
+            android:layout_weight="1"
+              android:clickable="false"          
+            android:background="@null"           
+            android:gravity="left|center_vertical"
+            android:onClick="goToNext"
+            android:text="线路工程"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+        
+         <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"            
+            android:layout_marginRight="20dp"
+            android:src="@drawable/right_tiaozhuan" />
+    </LinearLayout>
+
+    <include layout="@layout/divider_gray" />
+
+</LinearLayout>

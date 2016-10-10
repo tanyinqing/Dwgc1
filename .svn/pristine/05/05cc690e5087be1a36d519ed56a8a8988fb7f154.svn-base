@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <drawable name="nonecolor">#00000000</drawable>
+
+    <string name="app_name">Dwgc1</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+
+     <string name="filename">文件名称</string>
+    <string name="filecontent">文件内容</string>
+    <string name="button">保存</string>
+    <string name="success">保存完成</string>
+     <string name="fail">保存失败</string>
+     <string name="sdcarderror">SDCard不存在或者写保护</string>
+     
+    <string-array name="type1">
+        <item>规划前期资料</item>
+        <item>设计招标 </item>
+        <item>初设编制</item>
+        <item>监理招标</item>
+        <item>物资招标</item>
+        <item>工程前期证件资料</item>
+        <item>土建招标</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+        <item>技术管理</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+        <item>技术管理</item>
+    </string-array>
+    <string-array name="type2">
+        <item>规划前期资料</item>
+        <item>设计招标</item>
+        <item>初设编制</item>
+        <item>监理招标</item>
+        <item>物资招标</item>
+        <item>工程前期证件资料</item>
+        <item>土建招标</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+        <item>造价管理</item>
+        <item>技术管理</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+        <item>造价管理</item>
+        <item>技术管理</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+        <item>造价管理</item>
+        <item>技术管理</item>
+    </string-array>
+    <string-array name="type3">
+        <item>规划前期资料</item>
+        <item>设计招标</item>
+        <item>初设编制</item>
+        <item>监理招标</item>
+        <item>物资招标</item>
+        <item>工程前期证件资料</item>
+        <item>土建招标</item>
+        <item>电气招标</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+        <item>造价管理</item>
+        <item>技术管理</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+        <item>造价管理</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+        <item>造价管理</item>
+        <item>技术管理</item>
+        <item>安全管理</item>
+        <item>项目管理</item>
+        <item>质量管理</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+    </string-array>
+    
+    <string-array name="type4">
+        <item>规划前期资料</item>
+        <item>设计招标</item>
+        <item>初设编制</item>
+        <item>监理招标</item>
+        <item>物资招标</item>
+        <item>工程前期证件资料</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+        <item>造价管理</item>
+        <item>技术管理</item>
+        <item>电气招标</item>
+        <item>土建招标</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+        <item>造价管理</item>
+        <item>技术管理</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+        <item>造价管理</item>
+        <item>技术管理</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+        <item>质量管理</item>
+        <item>造价管理</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+    </string-array>
+
+      <string-array name="type5">
+        <item>规划前期资料</item>
+        <item>设计招标</item>
+        <item>初设编制</item>
+        <item>监理招标</item>
+        <item>物资招标</item>
+        <item>工程前期证件资料</item>
+         <item>土建招标</item>
+         <item>电气招标</item>        
+        <item>项目管理</item>
+         <item>安全管理</item>
+          <item>质量管理</item>
+          <item>造价管理</item>
+        <item>技术管理</item>
+         <item>项目管理</item>
+       <item>安全管理</item>
+       <item>质量管理</item>
+         <item>造价管理</item>
+        <item>技术管理</item>
+        <item>项目管理</item>
+       <item>安全管理</item>
+       <item>质量管理</item>
+        <item>造价管理</item>
+        <item>技术管理</item>
+        <item>项目管理</item>
+         <item>安全管理</item>
+       <item>质量管理</item>
+         <item>造价管理</item>
+        <item>项目管理</item>
+         <item>安全管理</item>
+        <item>质量管理</item>
+    </string-array>
+    
+       <string-array name="type6">
+        <item>规划前期资料</item>        
+        <item>设计招标</item>
+        <item>初设编制</item>
+        <item>监理招标</item>
+        <item>物资招标</item>
+        <item>工程前期证件资料</item>
+        <item>施工招标</item>
+        <item>项目管理</item>
+        <item>安全管理</item>
+          <item>质量管理</item>
+         <item>技术管理</item>
+          <item>项目管理</item>
+          <item>安全管理</item>
+          <item>技术管理</item>
+          <item>项目管理</item>
+          <item>安全管理</item>
+           <item>质量管理</item>
+            <item>技术管理</item>
+    </string-array>
+    
+      <string-array name="type7">
+        <item>规划前期资料</item>        
+        <item>设计招标</item>
+        <item>初设编制</item>
+        <item>监理招标</item>
+        <item>物资招标</item>
+        <item>工程前期证件资料</item>
+        <item>施工招标</item>
+        <item>项目管理</item>        
+        <item>安全管理</item>        
+          <item>质量管理</item>
+           <item>造价管理</item>          
+         <item>技术管理</item>         
+          <item>项目管理</item>          
+          <item>安全管理</item>
+          <item>质量管理</item>          
+          <item>技术管理</item>
+          <item>项目管理</item>          
+          <item>安全管理</item> 
+           <item>质量管理</item>
+            <item>造价管理</item>
+            <item>技术管理</item>            
+    </string-array>
+    
+       <string-array name="type8">
+        <item>规划前期资料</item>                
+        <item>设计招标</item>        
+        <item>初设编制</item>        
+        <item>监理招标</item>        
+        <item>物资招标</item>        
+        <item>工程前期证件资料</item>        
+        <item>施工招标</item>        
+        <item>项目管理</item>                
+        <item>安全管理</item>                
+          <item>质量管理</item>          
+           <item>造价管理</item>                     
+         <item>技术管理</item>                  
+          <item>项目管理</item>                    
+          <item>安全管理</item>          
+          <item>质量管理</item>                    
+          <item>技术及造价管理</item>          
+          <item>项目管理</item>                    
+          <item>安全管理</item>           
+           <item>质量管理</item>           
+            <item>造价管理</item>
+            <item>技术管理</item>            
+    </string-array>
+</resources>

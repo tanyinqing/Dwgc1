@@ -1,0 +1,523 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root_splash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="25dp"
+                android:background="@color/background_buju" />
+
+            <include layout="@layout/divider_gray" />
+
+            <LinearLayout
+                android:id="@+id/button1"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/background_tuceng"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="goToNext"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/biandian_jichu" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:gravity="left|center_vertical"
+                    android:onClick="goToNext"
+                    android:text="基本信息"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/right_tiaozhuan" />
+            </LinearLayout>
+
+            <include layout="@layout/divider_gray" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/background_buju"
+                android:gravity="center"
+                android:text="签收情况录入/查看" />
+
+            <include layout="@layout/divider_gray" />
+
+            <LinearLayout
+                android:id="@+id/bn_start"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/background_tuceng"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="goToNext"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/biandian_kaigong" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:gravity="left|center_vertical"
+                    android:onClick="goToNext"
+                    android:text="工程开工阶段"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/right_tiaozhuan" />
+            </LinearLayout>
+
+            <include layout="@layout/divider_gray" />
+
+            <LinearLayout
+                android:id="@+id/bn_basic"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/background_tuceng"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="goToNext"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/biandian_jichu" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:gravity="left|center_vertical"
+                    android:onClick="goToNext"
+                    android:text="基础完成阶段"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/right_tiaozhuan" />
+            </LinearLayout>
+
+            <include layout="@layout/divider_gray" />
+
+            <LinearLayout
+                android:id="@+id/Button03"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/background_tuceng"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="goToNext"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/biandian_tujian" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:gravity="left|center_vertical"
+                    android:onClick="goToNext"
+                    android:text="土建交安阶段"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/right_tiaozhuan" />
+            </LinearLayout>
+
+            <include layout="@layout/divider_gray" />
+
+            <LinearLayout
+                android:id="@+id/stage1_finish"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/background_tuceng"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="goToNext"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/biandian_anzhuang" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:gravity="left|center_vertical"
+                    android:onClick="goToNext"
+                    android:text="安装完成阶段"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/right_tiaozhuan" />
+            </LinearLayout>
+
+            <include layout="@layout/divider_gray" />
+
+            <LinearLayout
+                android:id="@+id/Button04"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/background_tuceng"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="goToNext"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/biandian_touchan" />
+
+                <Button
+                    android:id="@+id/Button04"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:gravity="left|center_vertical"
+                    android:onClick="goToNext"
+                    android:text="工程投产阶段"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/right_tiaozhuan" />
+            </LinearLayout>
+
+            <include layout="@layout/divider_gray" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/background_buju" />
+
+            <include layout="@layout/divider_gray" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white_zhende"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/bn_daochu"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/background_tuceng"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="goToNext"
+                    android:orientation="horizontal" >
+
+					                    <ImageView
+					                        android:layout_width="30dp"
+					                        android:layout_height="30dp"
+					                        android:layout_marginLeft="20dp"
+					                        android:src="@drawable/biandian_jieguo" />
+					
+					                    <Button
+					                        android:layout_width="0dp"
+					                        android:layout_height="40dp"
+					                        android:layout_marginLeft="10dp"
+					                        android:layout_weight="1"
+					                        android:background="@null"
+					                        android:clickable="false"
+					                        android:gravity="left|center_vertical"
+					                        android:onClick="goToNext"
+					                        android:text="验收结果导出"
+					                        android:textAppearance="?android:attr/textAppearanceMedium"
+					                        android:textColor="@color/black"
+					                        android:textSize="16sp" />
+                </LinearLayout>
+
+						                <TextView
+						                    android:layout_width="1dp"
+						                    android:layout_height="50dp"
+						                    android:background="@color/biandian_shutiao" />
+
+    <LinearLayout
+         android:id="@+id/guochen_chakan"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_tuceng"
+                    android:clickable="true"
+                    android:onClick="goToNext"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/biandian_chakan" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/bn_look"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:onClick="goToNext"
+                        android:text="查看"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <include layout="@layout/divider_gray" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white_zhende"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/bn_result"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/background_tuceng"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="goToNext"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/biandian_qianzheng" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="5"
+                        android:background="@null"
+                        android:clickable="false"
+                        android:gravity="left|center_vertical"
+                        android:onClick="goToNext"
+                        android:text="签证结果导出"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:background="@color/biandian_shutiao" />
+
+                <LinearLayout
+                    android:id="@+id/qianzhen_chakan"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_tuceng"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="goToNext"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/biandian_chakan" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/bn_look"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:onClick="goToNext"
+                        android:text="查看"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <include layout="@layout/divider_gray" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white_zhende"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/bn_whole_export"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/background_tuceng"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="goToNext"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/biandian_lianjiediannao" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:clickable="false"
+                        android:gravity="left|center_vertical"
+                        android:onClick="goToNext"
+                        android:text="导出到电脑说明"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:background="@color/biandian_shutiao" />
+
+                <LinearLayout
+                    android:id="@+id/bangzhu_wendang"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_tuceng"
+                    android:clickable="true"
+                      android:onClick="goToNext"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/biandian_help" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/bn_look"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:onClick="goToNext"
+                        android:text="帮助"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <include layout="@layout/divider_gray" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

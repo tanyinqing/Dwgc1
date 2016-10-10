@@ -1,0 +1,251 @@
+package com.yzkj.utils;
+
+
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.StreamCorruptedException;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.text.TextUtils;
+import android.util.Base64;
+
+/**
+ * com.yzkj.utils.MD5Utils
+ * 閰嶇疆瀛樺偍宸ュ叿绫�
+ * 
+ * @author zeroangus
+ * 
+ */
+public class PreferenceUtil {
+
+	private SharedPreferences preferences;
+
+	public PreferenceUtil(Context context, String name, int Mode) {  //鏋勯�犳柟娉�
+		preferences = context.getSharedPreferences(name, Mode);
+	}
+
+	/**
+	 * 淇濆瓨瀵硅薄    淇濇寔涓�涓� 閿�煎
+	 * @param key
+	 * @param value
+	 */
+	public void putSetting(String key, Object value) {
+		Editor editor = preferences.edit();
+		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(baos);
+			oos.writeObject(value);
+			// 灏嗗簭鍒楀寲鐨勬暟鎹浆涓�16杩涘埗淇濆瓨
+			String value2 = bytesToHexString(baos.toByteArray());
+			editor.putString(key, value2);
+			editor.commit();
+		} catch (Exception e) {
+			System.out.println("putSetting ----> "+e.toString());
+		}
+	}
+
+	/**
+	 * desc:灏嗘暟缁勮浆涓�16杩涘埗
+	 * 
+	 * @param bArray
+	 * @return modified:
+	 */
+	public static String bytesToHexString(byte[] bArray) {
+		if (bArray == null) {
+			return null;
+		}
+		if (bArray.length == 0) {
+			return "";
+		}
+		StringBuffer sb = new StringBuffer(bArray.length);
+		String sTemp;
+		for (int i = 0; i < bArray.length; i++) {
+			sTemp = Integer.toHexString(0xFF & bArray[i]);
+			if (sTemp.length() < 2)
+				sb.append(0);
+			sb.append(sTemp.toUpperCase());
+		}
+		return sb.toString();
+	}
+
+	/**
+	 * desc:鑾峰彇淇濆瓨鐨凮bject瀵硅薄
+	 * 
+	 * @param key
+	 * @return modified:
+	 */
+	public Object readObject(String key) {
+		try {
+			if (preferences.contains(key)) {
+				System.out.println("preferences.contains -------------> " + key);
+				String string = preferences.getString(key, "");
+				if (TextUtils.isEmpty(string)) {
+
+					System.out.println( key + " -----> is empty"  );
+					return null;
+				} else {
+
+					System.out.println( key + " -----> is not empty"  );
+					// 灏�16杩涘埗鐨勬暟鎹浆涓烘暟缁勶紝鍑嗗鍙嶅簭鍒楀寲
+					byte[] stringToBytes = StringToBytes(string);
+					ByteArrayInputStream bis = new ByteArrayInputStream(
+							stringToBytes);
+					ObjectInputStream is = new ObjectInputStream(bis);
+					// 杩斿洖鍙嶅簭鍒楀寲寰楀埌鐨勫璞�
+					Object readObject = is.readObject();
+					return readObject;
+				}
+			}
+		} catch (StreamCorruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// 鎵�鏈夊紓甯歌繑鍥瀗ull
+		return null;
+
+	}
+
+	/**
+	 * desc:灏�16杩涘埗鐨勬暟鎹浆涓烘暟缁�
+	 * <p>
+	 * 鍒涘缓浜猴細鑱傛棴闃� , 2014-5-25 涓婂崍11:08:33
+	 * </p>
+	 * 
+	 * @param data
+	 * @return modified:
+	 */
+	public static byte[] StringToBytes(String data) {
+		String hexString = data.toUpperCase().trim();
+		if (hexString.length() % 2 != 0) {
+			return null;
+		}
+		byte[] retData = new byte[hexString.length() / 2];
+		for (int i = 0; i < hexString.length(); i++) {
+			int int_ch; // 涓や綅16杩涘埗鏁拌浆鍖栧悗鐨�10杩涘埗鏁�
+			char hex_char1 = hexString.charAt(i); // //涓や綅16杩涘埗鏁颁腑鐨勭涓�浣�(楂樹綅*16)
+			int int_ch1;
+			if (hex_char1 >= '0' && hex_char1 <= '9')
+				int_ch1 = (hex_char1 - 48) * 16; // // 0 鐨凙scll - 48
+			else if (hex_char1 >= 'A' && hex_char1 <= 'F')
+				int_ch1 = (hex_char1 - 55) * 16; // // A 鐨凙scll - 65
+			else
+				return null;
+			i++;
+			char hex_char2 = hexString.charAt(i); // /涓や綅16杩涘埗鏁颁腑鐨勭浜屼綅(浣庝綅)
+			int int_ch2;
+			if (hex_char2 >= '0' && hex_char2 <= '9')
+				int_ch2 = (hex_char2 - 48); // // 0 鐨凙scll - 48
+			else if (hex_char2 >= 'A' && hex_char2 <= 'F')
+				int_ch2 = hex_char2 - 55; // // A 鐨凙scll - 65
+			else
+				return null;
+			int_ch = int_ch1 + int_ch2;
+			retData[i / 2] = (byte) int_ch;// 灏嗚浆鍖栧悗鐨勬暟鏀惧叆Byte閲�
+		}
+		return retData;
+	}
+
+	/**
+	 * 
+	 * 鎻掑叆鍗曚釜閰嶇疆淇℃伅锛坰tring,string锛�
+	 * 
+	 * @param key
+	 * @param value
+	 */
+	public void putSetting(String key, String value) {
+		Editor editor = preferences.edit();
+		editor.putString(key, value);
+		editor.commit();
+	}
+
+	/**
+	 * 
+	 * 鎻掑叆鍗曚釜閰嶇疆淇℃伅锛坰tring,int锛�
+	 * 
+	 * @param key
+	 * @param value
+	 */
+	public void putSetting(String key, int value) {
+		Editor editor = preferences.edit();
+		editor.putInt(key, value);
+		editor.commit();
+	}
+
+	/**
+	 * 鎻掑叆鍗曚釜閰嶇疆淇℃伅锛坰tring,boolean锛�
+	 * 
+	 * @param key
+	 * @param value
+	 */
+	public void putSetting(String key, Boolean value) {
+
+		Editor editor = preferences.edit();
+		editor.putBoolean(key, value);
+		editor.commit();
+	}
+
+	/**
+	 * 
+	 * 鎻掑叆澶氫釜閰嶇疆淇℃伅
+	 * 
+	 * @param params
+	 */
+	public void putSettings(HashMap<String, Object> params) {
+		Editor editor = preferences.edit();
+		Iterator<String> iter = params.keySet().iterator();
+		while (iter.hasNext()) {
+			String name = (String) iter.next();
+			if (params.get(name).getClass() == Boolean.class) {
+				editor.putBoolean(name, (Boolean) params.get(name));
+			} else {
+				editor.putString(name, (String) params.get(name));
+			}
+		}
+		editor.commit();
+	}
+
+	/**
+	 * 缂虹渷杩斿洖-1
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public int getIntSetting(String key) {
+		return preferences.getInt(key, -1);
+	}
+
+	/**
+	 * 缂虹渷杩斿洖null
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public String getStrSetting(String key) {
+		return preferences.getString(key, null);
+	}
+
+	/**
+	 * 缂虹渷杩斿洖false
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public boolean getBoolean(String key) {
+		return preferences.getBoolean(key, false);
+	}
+
+}

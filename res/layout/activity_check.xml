@@ -1,0 +1,242 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root_splash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+         android:background="@drawable/background_tuceng"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+        
+          <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/basic_information" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="2dp"           
+            android:background="@null"           
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+        
+         <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"            
+            android:layout_marginRight="10dp"
+            android:src="@drawable/xiangxia_jiantou" />
+         
+     </LinearLayout>
+     
+     <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"       
+        android:gravity="center_vertical"       
+        android:orientation="horizontal" >
+         
+         <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="40dp" 
+         android:layout_weight="2"      
+        android:gravity="center_vertical"       
+        android:orientation="horizontal" >
+         <TextView
+            android:id="@+id/textView0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:gravity="center"
+            android:text="序"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"           
+            android:text="档案名称"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+        
+          <TextView
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"           
+            android:layout_height="wrap_content"
+             android:layout_marginRight="20dp"
+          	android:gravity="center"
+            android:text="是否合格"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+       </LinearLayout>
+
+       <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="40dp" 
+         android:layout_weight="1"      
+        android:gravity="center_vertical"       
+        android:orientation="horizontal" >
+         
+            <TextView
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"           
+            android:text="标准"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+            
+         <TextView
+            android:id="@+id/button1"
+           android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text="照相"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/button1"
+          android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="10dp"
+            android:text="查看"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+       </LinearLayout>
+          </LinearLayout>
+          
+      <ListView
+        android:id="@+id/lv_details"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:divider="@color/hengxian_type"       
+        android:dividerHeight="2dp"
+        android:headerDividersEnabled="false"                
+        android:textSize="15sp" />
+     
+   </LinearLayout>
+  <!-- <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/gallery_photo"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_button"
+            android:onClick="goToNext"
+            android:text="相册"
+            android:textColor="@color/text_color_button"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_title"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="序号"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:text="档案名称"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:text="是否合格"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="标准"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text="照相"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text="查看"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="#000000"
+        android:textSize="15sp" />-->
+ 

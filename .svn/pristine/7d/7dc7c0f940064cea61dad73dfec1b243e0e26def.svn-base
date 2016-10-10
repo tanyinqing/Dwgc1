@@ -1,0 +1,144 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root_splash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- 这是二级布局 -->
+
+            <LinearLayout
+                android:id="@+id/login_zhanghu"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:ems="10"
+                    android:hint="输入新工程名称"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" >
+                </EditText>
+
+                <ImageButton
+                    android:id="@+id/delete_project_name"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="20dp"
+                     android:onClick="onClick"
+                    android:background="@drawable/error2"
+                    android:paddingBottom="1dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/fengexian1"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/login_zhanghu"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#FF000000" />
+
+            <Button
+                android:id="@+id/add_project"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_button"
+                android:onClick="onClick"
+                android:text="创建工程"
+                android:textColor="@color/text_color_button"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:background="@color/background_buju" />
+
+            <include layout="@layout/divider_gray" />
+
+            <com.yzkj.customview.MyListView
+                android:id="@+id/lv_progrem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"              
+                android:divider="@color/hengxian_type"
+                android:dividerHeight="2dp"
+                android:headerDividersEnabled="false" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
+
+<!--
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:ems="8"
+            android:hint="请输入工程名称"
+            android:inputType="textMultiLine"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/add_project"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/editText1"
+            android:background="@drawable/background_button"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="添加工程"
+            android:textColor="@color/text_color_button"
+            android:textSize="22sp" />
+    </LinearLayout>
+    
+ 	<ListView
+ 	    android:id="@+id/lv_progrem"
+ 	    android:layout_width="match_parent"
+ 	    android:layout_height="wrap_content"
+ 	    android:layout_above="@+id/bn_lead"
+ 	     android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" 	   
+ 	    android:layout_below="@+id/linearLayout1" />
+-->
+
